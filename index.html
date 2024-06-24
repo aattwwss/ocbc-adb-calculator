@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Average Daily Balance Calculator</title>
+  <script defer data-domain="ocbc-adb-calc.tiiny.site" src="https://analytics.tiiny.site/js/plausible.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Average Daily Balance Calculator</h1>
+  </header>
+  <div class="container">
+    <div>
+      <label for="ledgerBalance">Ledger Balance:</label>
+      <input type="text" id="ledgerBalance" oninput="removeComma(this)">
+    </div>
+    <div>
+      <label for="currentADB">Current Month's Average Daily Balance :</label>
+      <input type="text" id="currentADB" oninput="removeComma(this)">
+    </div>
+    <div>
+      <label for="avgBalanceIncrease">Average daily balance increase vs. last month :</label>
+      <input type="text" id="avgBalanceIncrease" oninput="removeComma(this)">
+    </div>
+    <div>
+      <label for="bonusTrxDate">Bonus interest transaction (as of ?) :</label>
+      <input type="date" id="bonusTrxDate" oninput="removeComma(this)">
+    </div>
+    <div>
+      <button type="button" onclick="calculateADB()">Calculate Final ADB</button>
+    </div>
+    <div>
+      <label for="finalADB">Final ADB:</label>
+      <input type="text" id="finalADB" disabled>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
