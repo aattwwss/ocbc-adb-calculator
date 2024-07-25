@@ -1,2 +1,2 @@
 # ocbc-adb-calculator
-Calculate OCBC ADB
+Calculate OCBC Average Daily Balance Increase vs. Last Month
