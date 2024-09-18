@@ -36,7 +36,6 @@ function setDateAsYesterday(dateElement) {
     dateElement.value = formattedDate;
 }
 
-
 window.addEventListener('load', function () {
     setDateAsYesterday(bonusTrxDate);
 })
