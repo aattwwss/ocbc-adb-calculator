@@ -23,44 +23,32 @@
   <header>
     <h1>OCBC 360 Account Average Daily Balance Calculator</h1>
   </header>
-  <main class="container">
-    <section>
-      <h2>Calculate Your OCBC 360 ADB</h2>
-      <p>Use our calculator to determine your Average Daily Balance (ADB) for the OCBC 360 Account and maximize your interest earnings.</p>
-      <form id="adbCalculator" aria-label="ADB Calculator Form">
-        <div>
-          <label for="ledgerBalance">Current Ledger Balance (SGD):</label>
-          <input type="text" id="ledgerBalance" name="ledgerBalance" placeholder="Enter current balance" oninput="removeComma(this)" required>
-        </div>
-        <div>
-          <label for="currentADB">Current Month's Average Daily Balance (SGD):</label>
-          <input type="text" id="currentADB" name="currentADB" placeholder="Enter current ADB" oninput="removeComma(this)" required>
-        </div>
-        <div>
-          <label for="avgBalanceIncrease">Average Daily Balance Increase vs Last Month (SGD):</label>
-          <input type="text" id="avgBalanceIncrease" name="avgBalanceIncrease" placeholder="Enter ADB increase" oninput="removeComma(this)" required>
-        </div>
-        <div>
-          <label for="bonusTrxDate">Bonus Interest Transaction Date:</label>
-          <input type="date" id="bonusTrxDate" name="bonusTrxDate" required>
-        </div>
-        <div>
-          <button type="button" onclick="calculateADB()">Calculate Final ADB</button>
-        </div>
-        <div>
-          <label for="finalADB">Final Average Daily Balance (SGD):</label>
-          <input type="text" id="finalADB" name="finalADB" readonly>
-        </div>
-      </form>
-    </section>
-    <section>
-      <h2>Understanding OCBC 360 Account ADB</h2>
-      <p>The Average Daily Balance (ADB) is crucial for earning higher interest rates on your OCBC 360 Account. Learn how to calculate and optimize your ADB to maximize your savings.</p>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2024 Your Company Name. All rights reserved. | <a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-of-service">Terms of Service</a></p>
-  </footer>
+  <div class="container">
+    <h2>Calculate Your OCBC 360 ADB</h2>
+    <div>
+      <label for="ledgerBalance">Current Ledger Balance (SGD):</label>
+      <input type="text" id="ledgerBalance" placeholder="Enter current balance" oninput="removeComma(this)">
+    </div>
+    <div>
+      <label for="currentADB">Current Month's Average Daily Balance (SGD):</label>
+      <input type="text" id="currentADB" placeholder="Enter current ADB" oninput="removeComma(this)">
+    </div>
+    <div>
+      <label for="avgBalanceIncrease">Average Daily Balance Increase vs Last Month (SGD):</label>
+      <input type="text" id="avgBalanceIncrease" placeholder="Enter ADB increase" oninput="removeComma(this)">
+    </div>
+    <div>
+      <label for="bonusTrxDate">Bonus Interest Transaction Date:</label>
+      <input type="date" id="bonusTrxDate">
+    </div>
+    <div>
+      <button type="button" onclick="calculateADB()">Calculate Final ADB</button>
+    </div>
+    <div>
+      <label for="finalADB">Final Average Daily Balance (SGD):</label>
+      <input type="text" id="finalADB" disabled>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
