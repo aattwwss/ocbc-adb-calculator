@@ -60,14 +60,15 @@ function setDatesAsYesterday() {
 }
 
 function calculateLedgerBalance() {
+    const currentBalance = parseFloat(document.getElementById('currentLedgerBalance').value);
     const targetADB = parseFloat(document.getElementById('targetADB').value);
-    const currentADB = parseFloat(document.getElementById('currentADB').value);
-    const avgBalanceIncrease = parseFloat(document.getElementById('avgBalanceIncrease').value);
+    const currentADB = parseFloat(document.getElementById('ledgerCurrentADB').value);
+    const avgBalanceIncrease = parseFloat(document.getElementById('ledgerAvgBalanceIncrease').value);
     const bonusTrxDate = new Date(document.getElementById('ledgerBonusTrxDate').value);
 
-    if (isNaN(targetADB) || isNaN(currentADB) || isNaN(avgBalanceIncrease) || isNaN(bonusTrxDate)) {
+    if (isNaN(targetADB) || isNaN(currentADB) || isNaN(avgBalanceIncrease) || isNaN(bonusTrxDate) || isNaN(currentBalance)) {
         // alert('Please enter valid numeric values for all inputs.');
-        document.getElementById('targetLedgerBalance').value = "Invalid Input Values";
+        document.getElementById('ledgerBalanceToAdd').value = "Invalid Input Values";
         return;
     }
 
@@ -76,9 +77,8 @@ function calculateLedgerBalance() {
     console.log(daysInMonth);
 
     const ledgerBalance = ((targetADB + (currentADB - avgBalanceIncrease)) * daysInMonth - currentADB * bonusTrxDays) / (daysInMonth - bonusTrxDays)
-    console.log(Math.ceil(ledgerBalance * 100) / 100);
 
-    document.getElementById('targetLedgerBalance').value = Math.ceil(ledgerBalance * 100) / 100;
+    document.getElementById('ledgerBalanceToAdd').value = Math.ceil(ledgerBalance * 100) / 100 - currentBalance;
 }
 
 window.addEventListener('load', function() {

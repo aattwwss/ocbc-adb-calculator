@@ -34,7 +34,7 @@
       <button class="tab-button" onclick="openTab(event, 'ledgerTab')">Ledger Balance Calculator</button>
     </div>
     <div id="adbTab" class="tab-content active">
-      <h2>Calculate Your OCBC 360 ADB</h2>
+      <!-- <h2>Calculate Your OCBC 360 ADB</h2> -->
       <div>
         <label for="ledgerBalance">Current Ledger Balance (SGD):</label>
         <input type="text" id="ledgerBalance" placeholder="Enter current balance" oninput="filterInputNumber(this)">
@@ -60,29 +60,35 @@
       </div>
     </div>
     <div id="ledgerTab" class="tab-content">
-      <h2>Calculate Ledger Balance Needed</h2>
+      <!-- <h2>Calculate Ledger Balance Needed</h2> -->
       <div>
-        <label for="targetADB">Target ADB (SGD):</label>
-        <input type="text" id="targetADB" placeholder="Enter your target ADB" oninput="filterInputNumber(this)">
+        <label for="currentLedgerBalance">Current Ledger Balance (SGD):</label>
+        <input type="text" id="currentLedgerBalance" placeholder="Enter current balance"
+          oninput="filterInputNumber(this)">
       </div>
       <div>
-        <label for="currentADB">Current Month's Average Daily Balance (SGD):</label>
-        <input type="text" id="currentADB" placeholder="Enter current ADB" oninput="filterInputNumber(this)">
+        <label for="ledgerCurrentADB">Current Month's Average Daily Balance (SGD):</label>
+        <input type="text" id="ledgerCurrentADB" placeholder="Enter current ADB" oninput="filterInputNumber(this)">
       </div>
       <div>
-        <label for="avgBalanceIncrease">ADB Increase vs Last Month (SGD):</label>
-        <input type="text" id="avgBalanceIncrease" placeholder="Enter ADB increase" oninput="filterInputNumber(this)">
+        <label for="ledgerAvgBalanceIncrease">ADB Increase vs Last Month (SGD):</label>
+        <input type="text" id="ledgerAvgBalanceIncrease" placeholder="Enter ADB increase"
+          oninput="filterInputNumber(this)">
       </div>
       <div>
         <label for="bonusTrxDate">Bonus Interest Transaction Date:</label>
         <input type="date" name="bonusTrxDate" id="ledgerBonusTrxDate">
       </div>
       <div>
+        <label for="targetADB">Target ADB (SGD):</label>
+        <input type="text" id="targetADB" placeholder="Enter your target ADB" oninput="filterInputNumber(this)">
+      </div>
+      <div>
         <button type="button" onclick="calculateLedgerBalance()">Calculate Final ADB</button>
       </div>
       <div>
-        <label for="targetLedgerBalance">Target ledger balance:</label>
-        <input type="text" id="targetLedgerBalance" disabled>
+        <label for="ledgerBalanceToAdd">Ledger Balance To Add:</label>
+        <input type="text" id="ledgerBalanceToAdd" disabled>
       </div>
     </div>
   </div>
