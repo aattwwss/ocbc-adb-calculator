@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OCBC 360 Account Average Daily Balance Calculator | Singapore</title>
-  <meta name="description" content="Calculate your Average Daily Balance (ADB) for OCBC 360 Bank Account in Singapore. Maximize your interest earnings with our easy-to-use ADB calculator.">
+  <meta name="description"
+    content="Calculate your Average Daily Balance (ADB) for OCBC 360 Bank Account in Singapore. Maximize your interest earnings with our easy-to-use ADB calculator.">
   <link rel="stylesheet" href="style.css">
-<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAMz/AGnd+gD8/v8ACgoKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEREREAAAAAEERERFAAAAEESIiIRQAAAQSREQiFAAABBIxEUIUAAAEEjERQhQAAAQSMRFCFAAABBIxEUIUAAAEEjERQhQAAAQSMRFCFAAABBIxEUIUAAAEEjERQhQAAAQRIzQhFAAAAEERERFAAAAABBERFAAAAAAARERAAAD4DwAA8AcAAOADAADgAwAA4AMAAOADAADgAwAA4AMAAOADAADgAwAA4AMAAOADAADgAwAA8AcAAPgPAAD8HwAA" rel="icon" type="image/x-icon">
+  <link
+    href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAMz/AGnd+gD8/v8ACgoKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEREREAAAAAEERERFAAAAEESIiIRQAAAQSREQiFAAABBIxEUIUAAAEEjERQhQAAAQSMRFCFAAABBIxEUIUAAAEEjERQhQAAAQSMRFCFAAABBIxEUIUAAAEEjERQhQAAAQRIzQhFAAAAEERERFAAAAABBERFAAAAAAARERAAAD4DwAA8AcAAOADAADgAwAA4AMAAOADAADgAwAA4AMAAOADAADgAwAA4AMAAOADAADgAwAA8AcAAPgPAAD8HwAA"
+    rel="icon" type="image/x-icon">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -19,36 +23,70 @@
   }
   </script>
 </head>
+
 <body>
   <header>
-    <h1>OCBC 360<br/>Account Average Daily Balance Calculator</h1>
+    <h1>OCBC 360<br />Account Average Daily Balance Calculator</h1>
   </header>
   <div class="container">
-    <h2>Calculate Your OCBC 360 ADB</h2>
-    <div>
-      <label for="ledgerBalance">Current Ledger Balance (SGD):</label>
-      <input type="text" id="ledgerBalance" placeholder="Enter current balance" oninput="filterInputNumber(this)">
+    <div class="tabs">
+      <button class="tab-button active" onclick="openTab(event, 'adbTab')">ADB Calculator</button>
+      <button class="tab-button" onclick="openTab(event, 'ledgerTab')">Ledger Balance Calculator</button>
     </div>
-    <div>
-      <label for="currentADB">Current Month's Average Daily Balance (SGD):</label>
-      <input type="text" id="currentADB" placeholder="Enter current ADB" oninput="filterInputNumber(this)">
+    <div id="adbTab" class="tab-content active">
+      <h2>Calculate Your OCBC 360 ADB</h2>
+      <div>
+        <label for="ledgerBalance">Current Ledger Balance (SGD):</label>
+        <input type="text" id="ledgerBalance" placeholder="Enter current balance" oninput="filterInputNumber(this)">
+      </div>
+      <div>
+        <label for="currentADB">Current Month's Average Daily Balance (SGD):</label>
+        <input type="text" id="currentADB" placeholder="Enter current ADB" oninput="filterInputNumber(this)">
+      </div>
+      <div>
+        <label for="avgBalanceIncrease">ADB Increase vs Last Month (SGD):</label>
+        <input type="text" id="avgBalanceIncrease" placeholder="Enter ADB increase" oninput="filterInputNumber(this)">
+      </div>
+      <div>
+        <label for="bonusTrxDate">Bonus Interest Transaction Date:</label>
+        <input type="date" name="bonusTrxDate" id="adbBonusTrxDate">
+      </div>
+      <div>
+        <button type="button" onclick="calculateADB()">Calculate Final ADB</button>
+      </div>
+      <div>
+        <label for="finalADB">Final Average Daily Balance (SGD):</label>
+        <input type="text" id="finalADB" disabled>
+      </div>
     </div>
-    <div>
-      <label for="avgBalanceIncrease">ADB Increase vs Last Month (SGD):</label>
-      <input type="text" id="avgBalanceIncrease" placeholder="Enter ADB increase" oninput="filterInputNumber(this)">
-    </div>
-    <div>
-      <label for="bonusTrxDate">Bonus Interest Transaction Date:</label>
-      <input type="date" id="bonusTrxDate">
-    </div>
-    <div>
-      <button type="button" onclick="calculateADB()">Calculate Final ADB</button>
-    </div>
-    <div>
-      <label for="finalADB">Final Average Daily Balance (SGD):</label>
-      <input type="text" id="finalADB" disabled>
+    <div id="ledgerTab" class="tab-content">
+      <h2>Calculate Ledger Balance Needed</h2>
+      <div>
+        <label for="targetADB">Target ADB (SGD):</label>
+        <input type="text" id="targetADB" placeholder="Enter your target ADB" oninput="filterInputNumber(this)">
+      </div>
+      <div>
+        <label for="currentADB">Current Month's Average Daily Balance (SGD):</label>
+        <input type="text" id="currentADB" placeholder="Enter current ADB" oninput="filterInputNumber(this)">
+      </div>
+      <div>
+        <label for="avgBalanceIncrease">ADB Increase vs Last Month (SGD):</label>
+        <input type="text" id="avgBalanceIncrease" placeholder="Enter ADB increase" oninput="filterInputNumber(this)">
+      </div>
+      <div>
+        <label for="bonusTrxDate">Bonus Interest Transaction Date:</label>
+        <input type="date" name="bonusTrxDate" id="ledgerBonusTrxDate">
+      </div>
+      <div>
+        <button type="button" onclick="calculateLedgerBalance()">Calculate Final ADB</button>
+      </div>
+      <div>
+        <label for="targetLedgerBalance">Target ledger balance:</label>
+        <input type="text" id="targetLedgerBalance" disabled>
+      </div>
     </div>
   </div>
   <script src="script.js"></script>
 </body>
+
 </html>
