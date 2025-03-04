@@ -1,7 +1,7 @@
 const bonusTrxDateElement = document.getElementById('bonusTrxDate');
 
-function removeComma(input) {
-    input.value = input.value.replace(/,/g, '');
+function filterInputNumber(input) {
+    input.value = input.value.replace(/[^0-9.]/g, '');
 }
 
 function calculateADB() {

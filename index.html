@@ -27,15 +27,15 @@
     <h2>Calculate Your OCBC 360 ADB</h2>
     <div>
       <label for="ledgerBalance">Current Ledger Balance (SGD):</label>
-      <input type="text" id="ledgerBalance" placeholder="Enter current balance" oninput="removeComma(this)">
+      <input type="text" id="ledgerBalance" placeholder="Enter current balance" oninput="filterInputNumber(this)">
     </div>
     <div>
       <label for="currentADB">Current Month's Average Daily Balance (SGD):</label>
-      <input type="text" id="currentADB" placeholder="Enter current ADB" oninput="removeComma(this)">
+      <input type="text" id="currentADB" placeholder="Enter current ADB" oninput="filterInputNumber(this)">
     </div>
     <div>
       <label for="avgBalanceIncrease">ADB Increase vs Last Month (SGD):</label>
-      <input type="text" id="avgBalanceIncrease" placeholder="Enter ADB increase" oninput="removeComma(this)">
+      <input type="text" id="avgBalanceIncrease" placeholder="Enter ADB increase" oninput="filterInputNumber(this)">
     </div>
     <div>
       <label for="bonusTrxDate">Bonus Interest Transaction Date:</label>
