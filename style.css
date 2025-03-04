@@ -36,6 +36,56 @@ h1 {
 	margin-top: 20px;
 }
 
+.tabs {
+	display: flex;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
+	color: black;
+}
+
+.tab-button:hover {
+	background-color: #4d8cff;
+	/* Lighter shade of blue on hover */
+	color: white;
+	/* White text for contrast on hover */
+}
+
+.tab-button.active:hover {
+	background-color: #4d8cff;
+	/* Keep hover effect consistent for active tab */
+	color: white;
+	/* White text on hover for active tab */
+}
+
+.tab-button {
+	flex: 1;
+	padding: 10px;
+	background-color: #e0e0e0;
+	/* Lighter gray for disabled state */
+	color: #333;
+	/* Dark text for readability */
+	border: none;
+	border-radius: 5px 5px 0 0;
+	cursor: pointer;
+	text-align: center;
+}
+
+.tab-button.active {
+	background-color: white;
+	/* White background for active tab */
+	color: #0056b3;
+	/* Blue text to match theme and ensure contrast */
+	border-bottom: 2px solid #0056b3;
+}
+
+.tab-content {
+	display: none;
+}
+
+.tab-content.active {
+	display: block;
+}
+
 div {
 	margin-bottom: 15px;
 }
