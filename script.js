@@ -20,8 +20,8 @@ function openTab(evt, tabName) {
 }
 
 function filterInputNumber(input) {
-    input.value = input.value.replace(/[^0-9.]/g, '');
-}
+    input.value = input.value.replace(/[^0-9.-]/g, '');
+  }
 
 function calculateADB() {
     const ledgerBalance = parseFloat(document.getElementById('ledgerBalance').value);
