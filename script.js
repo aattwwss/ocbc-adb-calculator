@@ -37,7 +37,7 @@ function calculateADB() {
 
     const bonusTrxDays = bonusTrxDate.getDate();
     const daysInMonth = getDaysInMonth(bonusTrxDate);
-    console.log(daysInMonth);
+    // console.log(daysInMonth);
 
     const finalADB = ((currentADB * bonusTrxDays) + (ledgerBalance * (daysInMonth - bonusTrxDays))) / daysInMonth - (currentADB - avgBalanceIncrease);
 
@@ -50,7 +50,7 @@ function getDaysInMonth(date) {
 
 function setDatesAsYesterday() {
     const bonusTrxDateElements = document.getElementsByName('bonusTrxDate');
-    console.log(bonusTrxDateElements);
+    // console.log(bonusTrxDateElements);
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
     const formattedDate = yesterday.toISOString().split('T')[0];
@@ -74,7 +74,7 @@ function calculateLedgerBalance() {
 
     const bonusTrxDays = bonusTrxDate.getDate();
     const daysInMonth = getDaysInMonth(bonusTrxDate);
-    console.log(daysInMonth);
+    // console.log(daysInMonth);
 
     const ledgerBalance = ((targetADB + (currentADB - avgBalanceIncrease)) * daysInMonth - currentADB * bonusTrxDays) / (daysInMonth - bonusTrxDays)
 
